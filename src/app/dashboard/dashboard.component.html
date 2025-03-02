@@ -1,0 +1,23 @@
+<h1>Progress Dashboard</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Item ID</th>
+      <th>Description</th>
+      <th>Day</th>
+      <th>Logged Time</th>
+      <th>Estimated Time</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.itemId }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.statusHistory[item.statusHistory.length - 1]?.date | date:'d' }}</td>
+      <td>{{ item.totalLoggedTime }}</td>
+      <td>{{ item.estimatedTime || 'Not Set' }}</td>
+      <td>{{ item.statusHistory[item.statusHistory.length - 1]?.status }}</td>
+    </tr>
+  </tbody>
+</table>
