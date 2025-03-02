@@ -1,3 +1,4 @@
+<!-- dashboard.component.html -->
 <h1>Progress Dashboard</h1>
 <table>
   <thead>
@@ -8,6 +9,7 @@
       <th>Logged Time</th>
       <th>Estimated Time</th>
       <th>Status</th>
+      <th>Points</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,9 @@
       <td>{{ item.totalLoggedTime }}</td>
       <td>{{ item.estimatedTime || 'Not Set' }}</td>
       <td>{{ item.statusHistory[item.statusHistory.length - 1]?.status }}</td>
+      <td>
+        <input type="number" [(ngModel)]="item.points" (change)="setPoints(item.itemId, item.points)" />
+      </td>
     </tr>
   </tbody>
 </table>
